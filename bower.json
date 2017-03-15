@@ -1,0 +1,33 @@
+{
+  "name": "weather-app",
+  "main": "index.js",
+  "homepage": "https://github.com/ytlitng/San-Diego-Top-Spots-Angular",
+  "authors": [
+    "Chris Loucks <cloucks09@gmail.com>"
+  ],
+  "description": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "overrides": {
+    "font-awesome": {
+      "main": "css/font-awesome.css"
+    },
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.6.3",
+    "angular-toastr": "^2.1.1"
+  }
+}

@@ -1,0 +1,21 @@
+body {
+    background-image: url("/images/weatherAppBG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.h1 {
+text-color: white;
+text-align: center;
+}
+
+.p {
+  text-align: center;
+  text-color: white;
+font-style: italic;
+}
+}
+
+.boxed {
+  border: 1px solid white ;
+}

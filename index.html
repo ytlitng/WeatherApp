@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="app">
+
+<head>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+    <!-- endbower -->
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+<!-- always include ng-controller in body tag -->
+
+<body ng-controller="WeatherController as vm">
+    <div class="container-fluid">
+        <h1 style="color:white; text-align:center">Origin Weather Application</h1>
+        <h5 style="color:white; text-align:center">You'll always know when you will need an umbrella.</h5>
+        <hr/>
+        <div class="btn-group" style="margin-bottom: 12px;">
+            <button type="button" class="btn btn-primary" ng-click="vm.fetch('San Diego')">San Diego</button>
+            <button type="button" class="btn btn-primary" ng-click="vm.fetch('New York')">New York</button>
+            <button type="button" class="btn btn-primary" ng-click="vm.fetch('Washington DC')">Washington DC</button>
+            <button type="button" class="btn btn-primary" ng-click="vm.fetch('London')">London</button>
+            <button type="button" class="btn btn-primary" ng-click="vm.fetch('Tokyo')">Tokyo</button>
+        </div>
+        <form ng-submit="vm.fetch(vm.searchTerm)">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="vm.searchTerm" placeholder="Search for...">
+                <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">Go!</button>
+              </span>
+            </div>
+        </form>
+        <div class="row" style="margin-top: 12px;">
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">City Information</div>
+                    <div class="panel-body">
+                        <h1 class="text-center">{{vm.data.name}}</h1>
+                        <p class="text-center">Long/Lat:{{vm.data.coord.lon}}/{{vm.data.coord.lat}}</p>
+                        <div class="col-sm-4">
+                            <h5 class="text-center">Tempature (F)</h5>
+                            <p class="text-center">{{vm.data.main.temp}}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5 class="text-center">Pressure</h5>
+                            <p class="text-center">{{vm.data.main.pressure}}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5 class="text-center">Humidity</h5>
+                            <p class="text-center">{{vm.data.main.humidity}}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5 class="text-center">Lowest Temptature</h5>
+                            <p class="text-center">{{vm.data.main.temp_min}}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5 class="text-center">Highest Tempture</h5>
+                            <p class="text-center">{{vm.data.main.temp_max}}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5 class="text-center">Wind Speed</h5>
+                            <p class="text-center">{{vm.data.wind.speed}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Search History</div>
+                    <div class="panel-body"></div>
+                    <table class="table table-striped">
+                        <tr ng-repeat="item in vm.history">
+                            <td>{{item.name}}</td>
+                            <td>{{item.timestamp | date: "MM/dd/yyyy hh:mm:ss a"}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+</div>
+    </div>
+    </div>
+
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <!-- endbower -->
+
+    <!-- inject:js -->
+    <script src="app/app.module.js"></script>
+    <script src="app/weather/weather.controller.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
